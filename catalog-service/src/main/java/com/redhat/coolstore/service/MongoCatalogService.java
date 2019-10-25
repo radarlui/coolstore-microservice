@@ -35,11 +35,14 @@ public class MongoCatalogService implements CatalogService {
 	}
 
 	public List<Product> getProducts() {
+		/*
 	productCollection.drop();
         addAll(DEFAULT_PRODUCT_LIST);
         return StreamSupport.stream(productCollection.find().spliterator(), false)
                 .map(d -> toProduct(d))
                 .collect(Collectors.toList());
+		*/
+		return DEFAULT_PRODUCT_LIST;
 
     }
 
