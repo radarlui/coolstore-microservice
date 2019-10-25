@@ -9,6 +9,7 @@ import java.util.stream.StreamSupport;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 
 import com.mongodb.MongoClient;
@@ -18,7 +19,8 @@ import com.redhat.coolstore.model.Product;
 import org.bson.Document;
 
 
-@ApplicationScoped
+//@ApplicationScoped
+@RequestScoped
 public class MongoCatalogService implements CatalogService {
 
     @Inject
