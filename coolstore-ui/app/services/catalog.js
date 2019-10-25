@@ -13,9 +13,12 @@ angular.module("app")
 
     factory.getProducts = function() {
 		var deferred = $q.defer();
+	    /*
         if (products) {
             deferred.resolve(products);
         } else {
+		*/
+	{
             $http({
                 method: 'GET',
 								url: baseUrl
