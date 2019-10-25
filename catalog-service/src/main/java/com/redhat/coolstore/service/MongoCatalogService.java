@@ -33,6 +33,7 @@ public class MongoCatalogService implements CatalogService {
 	}
 
 	public List<Product> getProducts() {
+		init();
         return StreamSupport.stream(productCollection.find().spliterator(), false)
                 .map(d -> toProduct(d))
                 .collect(Collectors.toList());
