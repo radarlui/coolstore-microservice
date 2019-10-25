@@ -53,7 +53,7 @@ public class MongoCatalogService implements CatalogService {
     }
 
     @PostConstruct
-    protected void init() {
+    public void init() {
         log.info("@PostConstruct is called...");
 
         String dbName = System.getenv("DB_NAME");
