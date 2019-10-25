@@ -19,8 +19,8 @@ import com.redhat.coolstore.model.Product;
 import org.bson.Document;
 
 
-//@ApplicationScoped
-@RequestScoped
+@ApplicationScoped
+//@RequestScoped
 public class MongoCatalogService implements CatalogService {
 
     @Inject
@@ -35,7 +35,8 @@ public class MongoCatalogService implements CatalogService {
 	}
 
 	public List<Product> getProducts() {
-		init();
+	productCollection.drop();
+        addAll(DEFAULT_PRODUCT_LIST);
         return StreamSupport.stream(productCollection.find().spliterator(), false)
                 .map(d -> toProduct(d))
                 .collect(Collectors.toList());
@@ -53,7 +54,7 @@ public class MongoCatalogService implements CatalogService {
     }
 
     @PostConstruct
-    public void init() {
+    protected void init() {
         log.info("@PostConstruct is called...");
 
         String dbName = System.getenv("DB_NAME");
