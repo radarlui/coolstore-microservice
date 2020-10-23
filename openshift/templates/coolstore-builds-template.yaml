@@ -48,7 +48,7 @@ objects:
         forcePull: false
         from:
           kind: ImageStreamTag
-          name: nodejs:4
+          name: nodejs:10
           namespace: openshift
       type: Source
     resources:
