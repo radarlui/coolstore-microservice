@@ -274,11 +274,11 @@ objects:
     host: inventory-${HOSTNAME_SUFFIX}
     alternateBackends:
     - name: inventory-green
-      weight: "0"
+      weight: 0
     to:
       kind: Service
       name: inventory-blue
-      weight: "100"
+      weight: 100
 # PostgreSQL
 - apiVersion: v1
   kind: DeploymentConfig
