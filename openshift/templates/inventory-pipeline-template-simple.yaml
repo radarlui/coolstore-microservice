@@ -63,6 +63,7 @@ objects:
                         altTag = svc.name == "inventory-green" ? "green" : "blue"
 
                         openshift.tag("${env.INVENTORY_DEV_PROJECT}/inventory:latest", "${env.COOLSTORE_PROD_PROJECT}/inventory:prod-${tag}")
+                        openshift.selector("dc", "coolstore-gw").rollout().latest()
                         openshift.selector("dc", "inventory-${tag}").rollout().status()
                       }
                     }
